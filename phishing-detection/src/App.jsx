@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import DatasetDictionary from "./pages/DatasetDictionary";
+import DatasetDictionary from "./pages/Datasetdictionary";
 import Preprocessingintro from "./pages/Preprocessingintro";
 import DelectedColumnsPreprocessing from "./pages/DelectedColumnsPreprocessing";
 
