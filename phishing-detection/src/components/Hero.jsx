@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute inset-0 grid-texture pointer-events-none" />
       <div className="relative max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-16">
         <p className="rise rise-1 font-mono text-xs tracking-widest text-mutedDim uppercase mb-5">
-          Data Mining · Final Year Project · CS Dept
+          Data & Knowledge Mining · Final Year Project · NLP Lab
         </p>
 
         <h1 className="rise rise-2 font-display text-ink text-4xl sm:text-6xl leading-[1.08] max-w-3xl">

@@ -308,7 +308,7 @@ export default function DeletedColumnsPreprocessing() {
       </main>
 
       <footer className="max-w-4xl mx-auto px-5 sm:px-8 pb-16 pt-6 border-t border-hair">
-        <p className="font-mono text-[11px] text-mutedDim">Data Mining · University Name · 2026</p>
+        <p className="font-mono text-[11px] text-mutedDim">Data & Knowledge Mining · University of Computer Studies, Yangon · 2026</p>
       </footer>
     </div>
   );
