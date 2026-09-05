@@ -52,48 +52,57 @@ a { text-decoration: none; }
 
 const STEPS = [
   {
-    key: "Handling Missing Values",
-    icon: Trash2,
-    title: "Handling Missing Values",
-    desc: "Freely available data cannot always be used without verification due to the possibility of mistakes in it.",
+    key: "Performance Metrics",
+    icon: Puzzle,
+    title: "Performance Metrics",
+    desc: "The models were evaluated using binary classification metrics to assess the predictive performance on the URL categories.",
     status: "done",
-    href: "/preprocessing/handlingmissingvalues",
+    href: "/evaluation/performancemetrics",
     tone: "alert",
   },
   {
-    key: "Data Transformation",
-    icon: Puzzle,
-    title: "Data Transformation",
-    desc: "When feeding such data directly into machine learning algorithms, features with higher magnitude could overpower the algorithm’s optimizations and weight the results unreasonably.",
-    status: "done",
-    href: "/preprocessing/datatransformation",
-    tone: "info",
-  },
-  {
-    key: "Feature Selection",
+    key: "Model Comparison",
     icon: TrendingDown,
-    title: "Feature Selection",
-    desc: "Feature selection is performed to remove features that may are not useful for training of the model or cause issues such as bias, overfitting or leakage in the classification process.",
+    title: "Model Comparison",
+    desc: "The predictive performance of the four models was compared using the macro and weighted averages of precision, recall, and F1-score.",
     status: "done",
-    href: "/preprocessing/featureselection",
+    href: "/evaluation/modelcomparison",
     tone: "info",
   },
   {
-    key: "Data Normalization",
+    key: "Evaluation Analysis",
     icon: SlidersHorizontal,
-    title: "Data Normalization",
-    desc: "Data normalization guarantees that the information was represented consistently during the model training procedure.",
+    title: "Evaluation Analysis",
+    desc: "The evaluation results indicate that ensemble-based approaches outperform the baseline Logistic Regression model.",
     status: "done",
-    href: "/preprocessing/datanormalization",
+    href: "/evaluation/evaluationanalysis",
     tone: "info",
   },
   {
-    key: "Data Visualization",
+    key: "ROC Curve and AUC",
     icon: Tags,
-    title: "Data Visualization",
-    desc: "Data visualization is used to explore patterns and distributions within the dataset providing insights into URL characteristics and security metrics.",
+    title: "ROC Curve and AUC",
+    desc: "The predictive accuracy of Random Forest was further evaluated using the ROC and AUC metrics.",
     status: "done",
-    href: "/preprocessing/datavisualization",
+    href: "/evaluation/roccurve",
+    tone: "info",
+  },
+  {
+    key: "Cross Validation",
+    icon: Puzzle,
+    title: "Cross Validation",
+    desc: "To evaluate model stability and generalization, 5-fold stratified cross-validation was performed for all models.",
+    status: "done",
+    href: "/evaluation/crossvalidation",
+    tone: "info",
+  },
+{
+    key: "Findings",
+    icon: Tags,
+    title: "Findings",
+    desc: "Random Forest is the most practical classifier when it comes to real-time phishing URL detection.",
+    status: "done",
+    href: "/evaluation/findings",
     tone: "info",
   }
 ];
@@ -103,7 +112,7 @@ const toneText = (tone) =>
 const toneBg = (tone) =>
   tone === "alert" ? "bg-alert-10" : tone === "safe" ? "bg-safe-10" : tone === "data" ? "bg-data-10" : "bg-info-10";
 
-export default function PreprocessingIntro() {
+export default function MethodologiesIntro() {
   const doneCount = STEPS.filter((s) => s.status === "done").length;
 
   return (

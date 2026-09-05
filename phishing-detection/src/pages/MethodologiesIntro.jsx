@@ -52,48 +52,48 @@ a { text-decoration: none; }
 
 const STEPS = [
   {
-    key: "Handling Missing Values",
-    icon: Trash2,
-    title: "Handling Missing Values",
-    desc: "Freely available data cannot always be used without verification due to the possibility of mistakes in it.",
+    key: "Descriptive Mining",
+    icon: Puzzle,
+    title: "Descriptive Mining",
+    desc: "Data mining techniques and machine learning are used to analyze the factors that affect the structural and domain-related aspects of the website legitimacy.",
     status: "done",
-    href: "/preprocessing/handlingmissingvalues",
+    href: "/methodologies/descriptivemining",
     tone: "alert",
   },
   {
-    key: "Data Transformation",
-    icon: Puzzle,
-    title: "Data Transformation",
-    desc: "When feeding such data directly into machine learning algorithms, features with higher magnitude could overpower the algorithm’s optimizations and weight the results unreasonably.",
-    status: "done",
-    href: "/preprocessing/datatransformation",
-    tone: "info",
-  },
-  {
-    key: "Feature Selection",
+    key: "Applied Methodologies and Algorithms",
     icon: TrendingDown,
-    title: "Feature Selection",
-    desc: "Feature selection is performed to remove features that may are not useful for training of the model or cause issues such as bias, overfitting or leakage in the classification process.",
+    title: "Applied Methodologies and Algorithms",
+    desc: "Four supervised machine learning algorithms are applied to classify websites URLs according to their legitimacy using lexical, structural and network features.",
     status: "done",
-    href: "/preprocessing/featureselection",
+    href: "/methodologies/appliedmethodologies",
     tone: "info",
   },
   {
-    key: "Data Normalization",
+    key: "Model Set Up",
     icon: SlidersHorizontal,
-    title: "Data Normalization",
-    desc: "Data normalization guarantees that the information was represented consistently during the model training procedure.",
+    title: "Model Set Up",
+    desc: "The model setup defines how preprocessed data is used to train machine learning models for classifying website legitimacy.",
     status: "done",
-    href: "/preprocessing/datanormalization",
+    href: "/methodologies/modelsetup",
     tone: "info",
   },
   {
-    key: "Data Visualization",
+    key: "Baseline Model",
     icon: Tags,
-    title: "Data Visualization",
-    desc: "Data visualization is used to explore patterns and distributions within the dataset providing insights into URL characteristics and security metrics.",
+    title: "Baseline Model",
+    desc: "A baseline model was established using Logistic Regression.",
     status: "done",
-    href: "/preprocessing/datavisualization",
+    href: "/methodologies/baselinemodel",
+    tone: "info",
+  },
+  {
+    key: "Proposed Model",
+    icon: Puzzle,
+    title: "Proposed Model",
+    desc: "The proposed model for this project is the Random Forest.",
+    status: "done",
+    href: "/methodologies/proposedmodel",
     tone: "info",
   }
 ];
@@ -103,7 +103,7 @@ const toneText = (tone) =>
 const toneBg = (tone) =>
   tone === "alert" ? "bg-alert-10" : tone === "safe" ? "bg-safe-10" : tone === "data" ? "bg-data-10" : "bg-info-10";
 
-export default function PreprocessingIntro() {
+export default function MethodologiesIntro() {
   const doneCount = STEPS.filter((s) => s.status === "done").length;
 
   return (

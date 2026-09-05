@@ -23,7 +23,7 @@ export default function Nav() {
         <a href="/#top" className="flex items-center gap-2 font-mono text-sm text-ink">
           <Link2 size={16} className="text-data" />
           <span className="tracking-tight">
-            mining<span className="text-mutedDim">://</span>phish-url
+            Wint Wah<span className="text-mutedDim">://</span>Kyaw Soe
           </span>
         </a>
 
