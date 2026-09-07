@@ -8,16 +8,14 @@ from urllib.parse import urlparse
 
 app = FastAPI()
 
-# React Frontend မှ ခေါ်ယူခွင့်ပေးရန် CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Production ရောက်ရင် React URL (eg. http://localhost:5173) ပြောင်းပေးပါ
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Saved Model, Scaler & Feature Names များကို Load လုပ်ခြင်း
 model = joblib.load('random_forest_model.pkl')
 scaler = joblib.load('scaler.pkl')
 feature_names = joblib.load('feature_names.pkl')
@@ -27,7 +25,6 @@ class URLRequest(BaseModel):
     url: str
 
 
-# Colab ထဲက Feature Extraction function
 def extract_url_features(url: str):
     url = url.strip()
     if url.startswith('[') and '](' in url:

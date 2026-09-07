@@ -76,7 +76,7 @@ function ROCCurve() {
           fill="rgba(0, 212, 255, 0.12)"
         />
 
-        {/* Random Forest ROC Curve (Bright Cyan solid line) */}
+        {/* ROC Curve (Bright Cyan solid line) */}
         <path
           d="M 50 350 C 80 220, 180 110, 380 50"
           fill="none"
@@ -106,7 +106,7 @@ function ROCCurve() {
           <rect x="0" y="0" width="195" height="62" rx="6" fill="#161D28" stroke="#2a3545" strokeWidth="1.5" />
 
           <line x1="10" y1="18" x2="40" y2="18" stroke="#00D4FF" strokeWidth="3" />
-          <text x="48" y="22" className="font-mono text-[10px] text-ink">Random Forest (AUC = 0.9734)</text>
+          <text x="48" y="22" className="font-mono text-[10px] text-ink">XGBoost (AUC = 0.9779)</text>
 
           <line x1="10" y1="40" x2="40" y2="40" stroke="#FF6B4A" strokeWidth="2.5" strokeDasharray="4,4" />
           <text x="48" y="44" className="font-mono text-[10px] text-ink">Random Classifier</text>
@@ -170,14 +170,14 @@ function CodeBlock({ code }) {
 }
 
 const COLAB_CODE = `# ============================================
-# RANDOM FOREST - ROC CURVE & AUC
+# XGBOOST - ROC CURVE & AUC
 # ============================================
 
 import pandas as pd
 import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
 from sklearn.metrics import roc_curve, roc_auc_score
 
 
@@ -250,12 +250,12 @@ available_features = [
 ]
 
 
-X = df[available_features]
-y = df["phishing"]
+X = df[available_features].copy()
+y = df["phishing"].copy()
 
 
 # ============================================
-# 3. REMOVE CONSTANT FEATURES
+# 3. REMOVE CONSTANT FEATURES (27 FEATURES)
 # ============================================
 
 constant_features = [
@@ -280,12 +280,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 
 # ============================================
-# 5. TRAIN RANDOM FOREST
+# 5. TRAIN XGBOOST MODEL
 # ============================================
 
-model = RandomForestClassifier(
+model = XGBClassifier(
     n_estimators=100,
     random_state=42,
+    eval_metric='logloss',
     n_jobs=-1
 )
 
@@ -320,7 +321,7 @@ auc_score = roc_auc_score(
 
 
 print("=" * 60)
-print("RANDOM FOREST - ROC CURVE & AUC")
+print("XGBOOST - ROC CURVE & AUC")
 print("=" * 60)
 
 print(f"\nAUC Score: {auc_score:.4f}")
@@ -335,13 +336,17 @@ plt.figure(figsize=(8, 6))
 plt.plot(
     fpr,
     tpr,
-    label=f"Random Forest (AUC = {auc_score:.4f})"
+    color="darkorange",
+    lw=2,
+    label=f"XGBoost (AUC = {auc_score:.4f})"
 )
 
 # Random classifier reference line
 plt.plot(
     [0, 1],
     [0, 1],
+    color="navy",
+    lw=1.5,
     linestyle="--",
     label="Random Classifier"
 )
@@ -349,7 +354,7 @@ plt.plot(
 plt.xlabel("False Positive Rate")
 plt.ylabel("True Positive Rate")
 
-plt.title("ROC Curve - Random Forest")
+plt.title("ROC Curve - XGBoost")
 
 plt.legend(
     loc="lower right"
@@ -397,7 +402,7 @@ export default function Roccurve() {
         {/* Overview */}
         <section className="border border-hair rounded-lg bg-panel p-6 sm:p-8">
           <p className="font-body text-sm text-muted leading-relaxed max-w-3xl">
-            The predictive accuracy of <strong className="text-ink">Random Forest</strong> was further
+            The predictive accuracy of <strong className="text-ink">XGBoost</strong> was further
             evaluated using the ROC and AUC metrics. The AUC values help understand how well the model
             can distinguish legitimate web targets from malicious phishing URLs across different
             classification thresholds.
@@ -408,7 +413,7 @@ export default function Roccurve() {
         <section>
           <p className="font-mono text-xs tracking-widest text-mutedDim uppercase mb-4">Visualization</p>
           <h2 className="font-display text-2xl text-ink mb-6 max-w-xl">
-            ROC Curve – Random Forest
+            ROC Curve – XGBoost
           </h2>
 
           <div className="border border-hair rounded-lg bg-panel p-6 sm:p-8">
@@ -418,14 +423,14 @@ export default function Roccurve() {
             <div className="mt-6 grid sm:grid-cols-3 gap-4">
               <div className="col-span-1 bg-panel2 rounded-lg border border-hair p-4 text-center">
                 <p className="font-mono text-xs text-mutedDim uppercase tracking-wider">AUC Score</p>
-                <p className="font-display text-4xl text-safe mt-1">0.9734</p>
+                <p className="font-display text-4xl text-safe mt-1">0.9779</p>
                 <p className="font-body text-xs text-muted mt-1">Excellent discrimination</p>
               </div>
               <div className="col-span-2 bg-panel2 rounded-lg border border-hair p-4 flex items-center">
                 <div className="space-y-1 text-sm text-muted">
                   <p className="flex items-center gap-2">
                     <span className="w-4 h-0.5 bg-[#00D4FF]" />
-                    <span className="text-ink font-mono text-xs">Random Forest</span>
+                    <span className="text-ink font-mono text-xs">XGBoost</span>
                     <span className="text-xs text-mutedDim">(AUC = 0.9734)</span>
                   </p>
                   <p className="flex items-center gap-2">
@@ -447,8 +452,8 @@ export default function Roccurve() {
           </div>
           <div className="space-y-4 text-sm text-muted leading-relaxed">
             <p>
-              The Random Forest model achieves a considerably high AUC of{' '}
-              <strong className="text-ink">0.9734</strong>, implying that the algorithm can efficiently
+              The XGBoost model achieves a considerably high AUC of{' '}
+              <strong className="text-ink">0.9779</strong>, implying that the algorithm can efficiently
               differentiate legitimate and phishing URL classes.
             </p>
             <div className="grid sm:grid-cols-2 gap-4 mt-2">

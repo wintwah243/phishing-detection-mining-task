@@ -23,7 +23,6 @@ desktop.ini
 
 .idea/
 
-*.pkl
 *.h5
 *.onnx
 *.pt

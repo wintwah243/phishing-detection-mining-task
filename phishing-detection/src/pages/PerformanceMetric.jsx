@@ -261,12 +261,12 @@ export default function PerformanceMetric() {
         <section className="border border-hair rounded-lg bg-panel2 p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-4">
             <Info size={20} className="text-info" />
-            <h3 className="font-display text-xl text-ink">Example: Random Forest Results</h3>
+            <h3 className="font-display text-xl text-ink">Example: XGBoost Results</h3>
           </div>
           <div className="grid sm:grid-cols-4 gap-3 text-sm">
             <div className="bg-panel p-3 rounded-lg border border-hair text-center">
               <p className="font-mono text-[10px] text-mutedDim uppercase tracking-wider">Accuracy</p>
-              <p className="font-display text-xl text-safe">92.86%</p>
+              <p className="font-display text-xl text-safe">92.96%</p>
             </div>
             <div className="bg-panel p-3 rounded-lg border border-hair text-center">
               <p className="font-mono text-[10px] text-mutedDim uppercase tracking-wider">Precision (macro)</p>

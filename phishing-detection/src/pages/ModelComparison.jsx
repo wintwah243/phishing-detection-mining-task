@@ -43,12 +43,12 @@ const models = [
   {
     name: "XGBoost",
     icon: <Zap size={18} className="text-alert" />,
-    macroPrecision: 0.95,
-    macroRecall: 0.95,
-    macroF1: 0.95,
-    weightedPrecision: 0.96,
-    weightedRecall: 0.96,
-    weightedF1: 0.96,
+    macroPrecision: 0.92,
+    macroRecall: 0.92,
+    macroF1: 0.92,
+    weightedPrecision: 0.93,
+    weightedRecall: 0.93,
+    weightedF1: 0.93,
     color: "text-alert",
     bg: "bg-alert-10",
   },
@@ -79,12 +79,12 @@ const models = [
   {
     name: "Logistic Regression",
     icon: <Target size={18} className="text-info" />,
-    macroPrecision: 0.91,
-    macroRecall: 0.89,
-    macroF1: 0.90,
-    weightedPrecision: 0.91,
-    weightedRecall: 0.91,
-    weightedF1: 0.91,
+    macroPrecision: 0.92,
+    macroRecall: 0.90,
+    macroF1: 0.91,
+    weightedPrecision: 0.92,
+    weightedRecall: 0.92,
+    weightedF1: 0.92,
     color: "text-info",
     bg: "bg-info-10",
   },
@@ -162,7 +162,7 @@ export default function ModelComparison() {
                 </thead>
                 <tbody className="divide-y divide-hair">
                   {models.map((model, index) => (
-                    <tr key={model.name} className={`hover:bg-panel2/50 transition-colors ${index === 0 ? 'bg-panel2/30' : ''}`}>
+                    <tr key={model.name} className={`hover:bg-panel2/50 transition-colors ${index === 1 ? 'bg-panel2/30' : ''}`}>
                       <td className="px-4 py-3 font-mono text-sm text-ink flex items-center gap-2 whitespace-nowrap">
                         <span className={model.bg + " p-1 rounded"}>{model.icon}</span>
                         {model.name}
@@ -199,9 +199,9 @@ export default function ModelComparison() {
             <div className="flex items-center gap-3">
               <Zap size={28} className="text-alert" />
               <div>
-                <p className="font-display text-xl text-ink">XGBoost</p>
+                <p className="font-display text-xl text-ink">HistGradientBoosting</p>
                 <p className="font-body text-sm text-muted">
-                  Weighted F1: <span className="text-ink">0.96</span> &middot; Macro F1: <span className="text-ink">0.95</span>
+                  Weighted F1: <span className="text-ink">0.93</span> &middot; Macro F1: <span className="text-ink">0.92</span>
                 </p>
               </div>
             </div>
@@ -209,32 +209,32 @@ export default function ModelComparison() {
           <div className="border border-hair rounded-lg bg-panel p-5 border-safe/30">
             <div className="flex items-center gap-2 mb-3">
               <Shield size={18} className="text-safe" />
-              <span className="font-mono text-xs uppercase tracking-wider text-safe">Selected for phishing</span>
+              <span className="font-mono text-xs uppercase tracking-wider text-safe">Proposed Model</span>
             </div>
             <div className="flex items-center gap-3">
               <GitBranch size={28} className="text-safe" />
               <div>
-                <p className="font-display text-xl text-ink">Random Forest</p>
+                <p className="font-display text-xl text-ink">XGBoost</p>
                 <p className="font-body text-sm text-muted">
-                  Phishing Recall: <span className="text-ink">0.90</span> &middot; FN: <span className="text-ink">72</span>
+                  Phishing Recall: <span className="text-ink">0.90</span> &middot; FN: <span className="text-ink">69</span>
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Analysis: Why Random Forest */}
+        {/* Analysis */}
         <section className="border border-hair rounded-lg bg-panel p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-4">
             <AlertCircle size={20} className="text-safe" />
-            <h3 className="font-display text-xl text-ink">Why Random Forest?</h3>
+            <h3 className="font-display text-xl text-ink">Why XGBoost?</h3>
           </div>
           <div className="space-y-4 text-sm text-muted leading-relaxed">
             <p>
               Based on the provided comparison, the application of ensemble methods significantly improves
-              the results compared to the baseline model of Logistic Regression. While XGBoost achieved the
-              highest overall accuracy, <strong className="text-ink">Random Forest</strong> demonstrated a
-              higher recall for the <span className="text-alert">Phishing</span> class, making it better
+              the results compared to the baseline model of Logistic Regression. While HistGradientBoosting achieved the
+              highest overall accuracy, <strong className="text-ink">XGBoost</strong> demonstrated a
+              lower FN for the <span className="text-alert">Phishing</span> class, making it better
               suited for the problem at hand.
             </p>
             <p>
@@ -244,26 +244,25 @@ export default function ModelComparison() {
             </p>
             <div className="grid sm:grid-cols-2 gap-4 mt-2">
               <div className="bg-panel2 p-4 rounded-lg border border-hair">
-                <p className="font-mono text-xs text-safe uppercase tracking-wider">Random Forest</p>
+                <p className="font-mono text-xs text-safe uppercase tracking-wider">XGBoost</p>
                 <ul className="mt-2 space-y-1 list-disc list-inside text-muted">
                   <li>Phishing Recall: <span className="text-ink">0.90</span></li>
-                  <li>True Phishing: <span className="text-ink">619</span></li>
-                  <li>False Negatives: <span className="text-ink">72</span></li>
+                  <li>True Phishing: <span className="text-ink">622</span></li>
+                  <li>False Negatives: <span className="text-ink">69</span></li>
                 </ul>
               </div>
               <div className="bg-panel2 p-4 rounded-lg border border-hair">
                 <p className="font-mono text-xs text-data uppercase tracking-wider">HistGradientBoosting</p>
                 <ul className="mt-2 space-y-1 list-disc list-inside text-muted">
-                  <li>Phishing Recall: <span className="text-ink">0.89</span></li>
+                  <li>Phishing Recall: <span className="text-ink">0.92</span></li>
                   <li>True Phishing: <span className="text-ink">612</span></li>
                   <li>False Negatives: <span className="text-ink">79</span></li>
                 </ul>
               </div>
             </div>
             <p>
-              Because Random Forest relies on bagging across multiple decision trees, it reduces variance
-              and avoids over‑predicting the majority legitimate class. Consequently,{' '}
-              <strong className="text-safe">Random Forest was selected as the proposed primary classification
+              Consequently,{' '}
+              <strong className="text-safe">XGBoost was selected as the proposed primary classification
               model for real‑time URL evaluation.</strong>
             </p>
           </div>
@@ -278,22 +277,22 @@ export default function ModelComparison() {
           <div className="grid sm:grid-cols-3 gap-4 text-center text-sm">
             <div className="bg-panel p-4 rounded-lg border border-hair">
               <p className="font-mono text-xs text-mutedDim uppercase tracking-wider">Actual Legitimate</p>
-              <p className="font-display text-xl text-safe mt-1">1,235</p>
+              <p className="font-display text-xl text-safe mt-1">1,227</p>
               <p className="text-xs text-muted">Correctly predicted</p>
             </div>
             <div className="bg-panel p-4 rounded-lg border border-hair">
               <p className="font-mono text-xs text-mutedDim uppercase tracking-wider">Actual Phishing</p>
-              <p className="font-display text-xl text-safe mt-1">612</p>
+              <p className="font-display text-xl text-safe mt-1">622</p>
               <p className="text-xs text-muted">Correctly predicted</p>
             </div>
             <div className="bg-panel p-4 rounded-lg border border-hair border-alert/30">
               <p className="font-mono text-xs text-mutedDim uppercase tracking-wider">False Negatives</p>
-              <p className="font-display text-xl text-alert mt-1">72</p>
+              <p className="font-display text-xl text-alert mt-1">69</p>
               <p className="text-xs text-muted">Phishing missed</p>
             </div>
           </div>
           <p className="font-body text-xs text-mutedDim text-center mt-4">
-            Random Forest minimises False Negatives, which is critical for protecting users.
+            XGBoost minimises False Negatives, which is critical for protecting users.
           </p>
         </section>
 

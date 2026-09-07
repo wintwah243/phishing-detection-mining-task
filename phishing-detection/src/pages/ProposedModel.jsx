@@ -64,7 +64,7 @@ export default function ProposedModel() {
               <p className="font-mono text-xs tracking-widest text-mutedDim uppercase mb-1">
                 Proposed Model
               </p>
-              <h1 className="font-display text-2xl sm:text-3xl text-ink">Random Forest</h1>
+              <h1 className="font-display text-2xl sm:text-3xl text-ink">XGBoost</h1>
             </div>
           </div>
         </div>
@@ -79,16 +79,16 @@ export default function ProposedModel() {
               <Shield size={20} className="text-safe" />
             </div>
             <div>
-              <h2 className="font-display text-2xl text-ink mb-2">Why Random Forest?</h2>
+              <h2 className="font-display text-2xl text-ink mb-2">Why XGBoost?</h2>
               <p className="font-body text-sm text-muted leading-relaxed">
-                The proposed model for this project is <strong className="text-ink">Random Forest</strong> due to its ability
+                The proposed model for this project is <strong className="text-ink">XGBoost</strong> due to its ability
                 to capture non‑linear relationships between the lexical, structural, and network features
                 and its effectiveness on highly structured data such as URLs. This ensemble method trains
                 multiple decision trees on various subsets of the data and averages their results to reduce
                 variance and avoid overfitting.
               </p>
               <p className="font-body text-sm text-muted leading-relaxed mt-3">
-                The Random Forest algorithm was used for both classification and feature importance analysis.
+                The XGBoost algorithm was used for both classification and feature importance analysis.
                 Results show that structural parameters are the most relevant for the classification task —
                 features like <span className="text-ink">URL length</span>,{' '}
                 <span className="text-ink">domain slashes</span>,{' '}
@@ -107,7 +107,7 @@ export default function ProposedModel() {
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
             <div className="border border-hair rounded-lg bg-panel p-5 text-center">
               <p className="font-mono text-xs text-mutedDim uppercase tracking-wider">Accuracy</p>
-              <p className="font-display text-3xl text-safe mt-1">92.86%</p>
+              <p className="font-display text-3xl text-safe mt-1">92.96%</p>
             </div>
             <div className="border border-hair rounded-lg bg-panel p-5 text-center">
               <p className="font-mono text-xs text-mutedDim uppercase tracking-wider">Precision (macro)</p>
@@ -147,7 +147,7 @@ export default function ProposedModel() {
                       <span className="w-2.5 h-2.5 rounded-full bg-safe" />
                       Legitimate
                     </td>
-                    <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.94</td>
+                    <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.95</td>
                     <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.95</td>
                     <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.95</td>
                     <td className="px-4 py-3 font-mono text-sm text-mutedDim text-right">1,298</td>
@@ -157,8 +157,8 @@ export default function ProposedModel() {
                       <span className="w-2.5 h-2.5 rounded-full bg-alert" />
                       Phishing
                     </td>
-                    <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.91</td>
-                    <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.89</td>
+                    <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.90</td>
+                    <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.90</td>
                     <td className="px-4 py-3 font-mono text-sm text-ink text-right">0.90</td>
                     <td className="px-4 py-3 font-mono text-sm text-mutedDim text-right">691</td>
                   </tr>
@@ -166,7 +166,7 @@ export default function ProposedModel() {
                 <tfoot className="border-t-2 border-hair bg-panel2">
                   <tr>
                     <td className="px-4 py-3 font-mono text-sm text-ink font-bold">Accuracy</td>
-                    <td className="px-4 py-3 font-mono text-sm text-ink text-right" colSpan="3">0.93</td>
+                    <td className="px-4 py-3 font-mono text-sm text-ink text-right" colSpan="3">0.92</td>
                     <td className="px-4 py-3 font-mono text-sm text-mutedDim text-right">1,989</td>
                   </tr>
                   <tr>
@@ -201,18 +201,18 @@ export default function ProposedModel() {
               <div className="bg-panel2 p-3 border-r border-b border-hair text-center font-mono text-xs text-safe uppercase tracking-wider">
                 Legitimate
               </div>
-              <div className="p-3 border-r border-b border-hair text-center font-display text-2xl text-safe">1235</div>
-              <div className="p-3 border-b border-hair text-center font-display text-2xl text-alert">63</div>
+              <div className="p-3 border-r border-b border-hair text-center font-display text-2xl text-safe">1227</div>
+              <div className="p-3 border-b border-hair text-center font-display text-2xl text-alert">71</div>
 
               <div className="bg-panel2 p-3 border-r border-b border-hair text-center font-mono text-xs text-alert uppercase tracking-wider">
                 Phishing
               </div>
-              <div className="p-3 border-r border-b border-hair text-center font-display text-2xl text-safe">79</div>
-              <div className="p-3 border-b border-hair text-center font-display text-2xl text-alert">612</div>
+              <div className="p-3 border-r border-b border-hair text-center font-display text-2xl text-safe">69</div>
+              <div className="p-3 border-b border-hair text-center font-display text-2xl text-alert">622</div>
             </div>
             <div className="p-3 bg-panel2 border-t border-hair text-center font-mono text-xs text-mutedDim">
-              Correct predictions: <span className="text-safe">1235</span> (legit) + <span className="text-safe">612</span> (phish) = <span className="text-ink">1847</span>
-              &nbsp;·&nbsp; Incorrect: <span className="text-alert">79</span> + <span className="text-alert">63</span> = <span className="text-ink">142</span>
+              Correct predictions: <span className="text-safe">1227</span> (legit) + <span className="text-safe">622</span> (phish) = <span className="text-ink">1849</span>
+              &nbsp;·&nbsp; Incorrect: <span className="text-alert">69</span> + <span className="text-alert">71</span> = <span className="text-ink">140</span>
             </div>
           </div>
         </section>
@@ -252,7 +252,7 @@ export default function ProposedModel() {
             </div>
           </div>
           <p className="font-body text-xs text-mutedDim mt-4 text-center">
-            These features contribute most to the Random Forest’s classification decisions, confirming that
+            These features contribute most to the XGBoost’s classification decisions, confirming that
             structural attributes are the strongest predictors.
           </p>
         </section>
@@ -272,11 +272,11 @@ export default function ProposedModel() {
             <div className="bg-panel p-4 rounded-lg border border-hair border-safe">
               <p className="font-mono text-xs text-safe uppercase tracking-wider">Proposed</p>
               <p className="font-display text-lg text-safe mt-1">92.86% accuracy</p>
-              <p className="font-body text-muted text-xs">Random Forest</p>
+              <p className="font-body text-muted text-xs">XGBoost</p>
             </div>
           </div>
           <p className="font-body text-sm text-muted leading-relaxed mt-4">
-            The Random Forest model achieves a <span className="text-safe">+1.76%</span> improvement in accuracy
+            The XGBoost model achieves a <span className="text-safe">+1.76%</span> improvement in accuracy
             over the baseline, with notable gains in phishing recall (<span className="text-safe">+5.06%</span>)
             and F1-score for the phishing class (<span className="text-safe">+3.24%</span>), demonstrating its
             effectiveness for this task.

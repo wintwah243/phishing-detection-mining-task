@@ -43,8 +43,8 @@ const crossValidationData = [
   {
     model: "XGBoost",
     icon: <Zap size={18} className="text-alert" />,
-    meanAccuracy: "95.52%",
-    stability: "± 0.45%",
+    meanAccuracy: "92.55%",
+    stability: "± 0.46%",
     color: "text-alert",
     bg: "bg-alert-10",
     rank: 1,
@@ -53,7 +53,7 @@ const crossValidationData = [
     model: "HistGradientBoosting",
     icon: <BarChart3 size={18} className="text-data" />,
     meanAccuracy: "93.05%",
-    stability: "± 0.52%",
+    stability: "± 0.53%",
     color: "text-data",
     bg: "bg-data-10",
     rank: 2,
@@ -70,8 +70,8 @@ const crossValidationData = [
   {
     model: "Logistic Regression",
     icon: <Target size={18} className="text-info" />,
-    meanAccuracy: "90.85%",
-    stability: "± 0.42%",
+    meanAccuracy: "90.01%",
+    stability: "± 0.15%",
     color: "text-info",
     bg: "bg-info-10",
     rank: 4,
@@ -180,9 +180,9 @@ export default function CrossValidation() {
               <span className="font-mono text-xs uppercase tracking-wider text-alert">Highest accuracy</span>
             </div>
             <div>
-              <p className="font-display text-xl text-ink">XGBoost</p>
+              <p className="font-display text-xl text-ink">HistGradientBoosting</p>
               <p className="font-body text-sm text-muted">
-                Mean accuracy: <span className="text-ink">95.52%</span> &middot; Std: <span className="text-ink">±0.45%</span>
+                Mean accuracy: <span className="text-ink">93.05%</span> &middot; Std: <span className="text-ink">±0.53%</span>
               </p>
               <p className="font-body text-xs text-mutedDim mt-2">
                 Achieves the highest mean accuracy while maintaining low variability across folds.
@@ -197,51 +197,14 @@ export default function CrossValidation() {
               <span className="font-mono text-xs uppercase tracking-wider text-safe">Most stable</span>
             </div>
             <div>
-              <p className="font-display text-xl text-ink">Random Forest</p>
+              <p className="font-display text-xl text-ink">Logistic Regression</p>
               <p className="font-body text-sm text-muted">
-                Mean accuracy: <span className="text-ink">92.74%</span> &middot; Std: <span className="text-ink">±0.38%</span>
+                Mean accuracy: <span className="text-ink">90.01%</span> &middot; Std: <span className="text-ink">±0.15%</span>
               </p>
               <p className="font-body text-xs text-mutedDim mt-2">
                 Exhibits the lowest variance across folds, demonstrating excellent generalisation.
               </p>
             </div>
-          </div>
-        </section>
-
-        {/* Interpretation */}
-        <section className="border border-hair rounded-lg bg-panel p-6 sm:p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Info size={20} className="text-data" />
-            <h3 className="font-display text-xl text-ink">Interpretation</h3>
-          </div>
-          <div className="space-y-4 text-sm text-muted leading-relaxed">
-            <p>
-              The results indicate that <strong className="text-ink">XGBoost</strong> achieves the
-              highest mean accuracy (<span className="text-ink">95.52%</span>) while maintaining low
-              variability across folds (±0.45%), demonstrating both strong predictive performance and
-              stable generalisation.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4 mt-2">
-              <div className="bg-panel2 p-4 rounded-lg border border-hair">
-                <span className="font-mono text-xs text-safe uppercase tracking-wider">Lowest variance</span>
-                <p className="mt-1 text-muted">
-                  <strong className="text-ink">Random Forest</strong> exhibits the lowest standard
-                  deviation (±0.38%), making it the most stable model across folds.
-                </p>
-              </div>
-              <div className="bg-panel2 p-4 rounded-lg border border-hair">
-                <span className="font-mono text-xs text-info uppercase tracking-wider">Baseline</span>
-                <p className="mt-1 text-muted">
-                  <strong className="text-ink">Logistic Regression</strong> performs slightly lower
-                  (90.85%) with good stability (±0.42%), confirming its role as a reliable baseline.
-                </p>
-              </div>
-            </div>
-            <p className="mt-2">
-              Random Forest and HistGradientBoosting also show competitive accuracy with higher
-              stability, demonstrating that ensemble methods consistently outperform the baseline
-              while maintaining robust generalisation.
-            </p>
           </div>
         </section>
 
@@ -253,15 +216,15 @@ export default function CrossValidation() {
           </div>
           <div className="border border-hair rounded-lg bg-panel2 p-4 text-center">
             <p className="font-mono text-[10px] text-mutedDim uppercase tracking-wider">Best Model</p>
-            <p className="font-display text-xl text-alert">XGBoost</p>
+            <p className="font-display text-xl text-alert">HistGradient</p>
           </div>
           <div className="border border-hair rounded-lg bg-panel2 p-4 text-center">
             <p className="font-mono text-[10px] text-mutedDim uppercase tracking-wider">Highest Accuracy</p>
-            <p className="font-display text-xl text-safe">95.52%</p>
+            <p className="font-display text-xl text-safe">93%</p>
           </div>
           <div className="border border-hair rounded-lg bg-panel2 p-4 text-center">
             <p className="font-mono text-[10px] text-mutedDim uppercase tracking-wider">Most Stable</p>
-            <p className="font-display text-xl text-info">Random Forest</p>
+            <p className="font-display text-xl text-info">Logistic Regression</p>
           </div>
         </section>
 

@@ -113,9 +113,9 @@ export default function EvaluationAnalysis() {
                 <Zap size={18} className="text-alert" />
                 <span className="font-mono text-xs uppercase tracking-wider text-alert">Finding 2</span>
               </div>
-              <h3 className="font-display text-lg text-ink mb-1">XGBoost – Highest Accuracy</h3>
+              <h3 className="font-display text-lg text-ink mb-1">HistGradientBoosting – Highest Accuracy</h3>
               <p className="font-body text-sm text-muted leading-relaxed">
-                XGBoost achieves the highest numerical accuracy and weighted F1‑score on the static
+                HistGradientBoosting achieves the highest numerical accuracy and weighted F1‑score on the static
                 test split, demonstrating its optimisation power for structured tabular data.
               </p>
               <div className="mt-3 pt-3 border-t border-hair text-xs font-mono text-mutedDim">
@@ -123,16 +123,16 @@ export default function EvaluationAnalysis() {
               </div>
             </div>
 
-            {/* Finding 3: Random Forest generalisation */}
+            {/* Finding 3: */}
             <div className="border border-hair rounded-lg p-5 bg-panel border-safe/30">
               <div className="flex items-center gap-2 mb-2">
                 <Shield size={18} className="text-safe" />
                 <span className="font-mono text-xs uppercase tracking-wider text-safe">Finding 3</span>
               </div>
-              <h3 className="font-display text-lg text-ink mb-1">Random Forest – Superior Generalisation</h3>
+              <h3 className="font-display text-lg text-ink mb-1">XGBoost – Superior Generalisation</h3>
               <p className="font-body text-sm text-muted leading-relaxed">
-                Despite XGBoost's statistical lead, Random Forest maintains superior performance on
-                live inputs, achieving higher phishing recall and lower false negative rates.
+                Despite HistGradientBoosting's statistical lead, XGBoost maintains superior performance on
+                live inputs, achieving lower false negative rates.
               </p>
               <div className="mt-3 pt-3 border-t border-hair text-xs font-mono text-mutedDim">
                 Phishing Recall: <span className="text-ink">0.90</span> &middot; FN: <span className="text-ink">72</span>
@@ -157,19 +157,18 @@ export default function EvaluationAnalysis() {
           </div>
         </section>
 
-        {/* XGBoost vs Random Forest Detailed Comparison */}
+        {/*  Detailed Comparison */}
         <section className="border border-hair rounded-lg bg-panel p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-4">
             <Layers size={20} className="text-data" />
-            <h3 className="font-display text-xl text-ink">XGBoost vs Random Forest</h3>
+            <h3 className="font-display text-xl text-ink">XGBoost vs HistGradientBoosting</h3>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            {/* XGBoost */}
             <div className="bg-panel2 p-5 rounded-lg border border-hair">
               <div className="flex items-center gap-2 mb-3">
                 <Zap size={20} className="text-alert" />
-                <span className="font-mono text-sm text-ink font-semibold">XGBoost</span>
+                <span className="font-mono text-sm text-ink font-semibold">HistGradientBoosting</span>
                 <span className="ml-auto font-mono text-[10px] text-mutedDim bg-panel px-2 py-0.5 rounded">Statistical leader</span>
               </div>
               <ul className="space-y-2 text-sm text-muted">
@@ -179,7 +178,7 @@ export default function EvaluationAnalysis() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-safe shrink-0 mt-0.5" />
-                  <span>Best weighted F1‑score (<span className="text-ink">0.96</span>)</span>
+                  <span>Best weighted F1‑score (<span className="text-ink">0.93</span>)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-data shrink-0 mt-0.5" />
@@ -192,11 +191,11 @@ export default function EvaluationAnalysis() {
               </ul>
             </div>
 
-            {/* Random Forest */}
+
             <div className="bg-panel2 p-5 rounded-lg border border-hair border-safe/30">
               <div className="flex items-center gap-2 mb-3">
                 <GitBranch size={20} className="text-safe" />
-                <span className="font-mono text-sm text-ink font-semibold">Random Forest</span>
+                <span className="font-mono text-sm text-ink font-semibold">XGBoost</span>
                 <span className="ml-auto font-mono text-[10px] text-safe bg-safe-10 px-2 py-0.5 rounded">Selected</span>
               </div>
               <ul className="space-y-2 text-sm text-muted">
@@ -206,22 +205,22 @@ export default function EvaluationAnalysis() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-safe shrink-0 mt-0.5" />
-                  <span>Higher phishing recall (<span className="text-ink">0.90</span>)</span>
+                  <span>Phishing recall (<span className="text-ink">0.90</span>)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-safe shrink-0 mt-0.5" />
-                  <span>Lower false negatives (<span className="text-ink">72</span>)</span>
+                  <span>Lower false negatives (<span className="text-ink">69</span>)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-safe shrink-0 mt-0.5" />
-                  <span>Bagging reduces variance & avoids over‑predicting majority class</span>
+                  <span>Reduces variance & avoids over‑predicting majority class</span>
                 </li>
               </ul>
             </div>
           </div>
 
           <p className="font-body text-sm text-muted leading-relaxed mt-4 text-center">
-            While XGBoost leads on the test split, Random Forest's superior phishing recall and lower
+            While HistGradientBoosting leads on the test split, XGBoost's superior lower
             false negative rate make it <strong className="text-safe">better suited for real‑world threat detection</strong>.
           </p>
         </section>
@@ -242,22 +241,22 @@ export default function EvaluationAnalysis() {
               <div className="mt-5 grid sm:grid-cols-2 gap-4">
                 <div className="bg-panel2 p-4 rounded-lg border border-hair">
                   <p className="font-mono text-xs text-safe uppercase tracking-wider">Legitimate correctly identified</p>
-                  <p className="font-display text-2xl text-safe mt-1">1,235</p>
+                  <p className="font-display text-2xl text-safe mt-1">1,227</p>
                   <p className="text-xs text-muted">True Negatives (TN)</p>
                 </div>
                 <div className="bg-panel2 p-4 rounded-lg border border-hair">
                   <p className="font-mono text-xs text-safe uppercase tracking-wider">Phishing correctly identified</p>
-                  <p className="font-display text-2xl text-safe mt-1">612</p>
+                  <p className="font-display text-2xl text-safe mt-1">622</p>
                   <p className="text-xs text-muted">True Positives (TP)</p>
                 </div>
                 <div className="bg-panel2 p-4 rounded-lg border border-hair border-alert/30">
                   <p className="font-mono text-xs text-alert uppercase tracking-wider">Phishing misclassified</p>
-                  <p className="font-display text-2xl text-alert mt-1">72</p>
+                  <p className="font-display text-2xl text-alert mt-1">69</p>
                   <p className="text-xs text-muted">False Negatives (FN) — critical!</p>
                 </div>
                 <div className="bg-panel2 p-4 rounded-lg border border-hair">
                   <p className="font-mono text-xs text-data uppercase tracking-wider">Legitimate misclassified</p>
-                  <p className="font-display text-2xl text-data mt-1">79</p>
+                  <p className="font-display text-2xl text-data mt-1">71</p>
                   <p className="text-xs text-muted">False Positives (FP)</p>
                 </div>
               </div>
@@ -277,13 +276,13 @@ export default function EvaluationAnalysis() {
           </div>
           <div className="space-y-3 text-sm text-muted leading-relaxed">
             <p>
-              Despite XGBoost's statistical lead on the test split,{' '}
-              <strong className="text-safe">Random Forest</strong> maintains superior generalisation
-              on live inputs, achieving higher phishing recall and lower false negative rates —
+              Despite HistGradientBoosting's statistical lead on the test split,{' '}
+              <strong className="text-safe">XGBoost</strong> maintains superior generalisation
+              on live inputs, achieving lower false negative rates —
               which are <strong className="text-ink">critical for real‑world threat detection</strong>.
             </p>
             <p>
-              By reducing variance through bagging, Random Forest avoids over‑predicting the majority
+              XGBoost avoids over‑predicting the majority
               legitimate class, making it the <strong className="text-ink">optimal choice</strong> for
               a production‑ready phishing detection system.
             </p>

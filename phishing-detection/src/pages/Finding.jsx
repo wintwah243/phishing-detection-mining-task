@@ -75,9 +75,9 @@ export default function Findings() {
         {/* Executive Summary */}
         <section className="border border-hair rounded-lg bg-panel p-6 sm:p-8">
           <p className="font-body text-sm text-muted leading-relaxed max-w-3xl">
-            The evaluation reveals that while <strong className="text-ink">XGBoost</strong> showcases
+            The evaluation reveals that while <strong className="text-ink">HistGradientBoosting</strong> showcases
             exceptional numeric performance on static benchmarks,{' '}
-            <strong className="text-safe">Random Forest</strong> emerges as the most practical
+            <strong className="text-safe">XGBoost</strong> emerges as the most practical
             classifier for <span className="text-ink">real‑time phishing URL detection</span>.
           </p>
         </section>
@@ -90,31 +90,30 @@ export default function Findings() {
           </h2>
 
           <div className="grid sm:grid-cols-2 gap-4">
-            {/* Finding 1: XGBoost Performance */}
+            {/* Finding 1 */}
             <div className="border border-hair rounded-lg p-5 bg-panel">
               <div className="flex items-center gap-2 mb-2">
                 <Zap size={18} className="text-alert" />
                 <span className="font-mono text-xs uppercase tracking-wider text-alert">Finding 1</span>
               </div>
-              <h3 className="font-display text-lg text-ink mb-1">XGBoost Leads on Benchmarks</h3>
+              <h3 className="font-display text-lg text-ink mb-1">HistGradientBoosting Leads on Benchmarks</h3>
               <p className="font-body text-sm text-muted leading-relaxed">
                 XGBoost achieves the highest numeric performance on static benchmarks with{' '}
-                <span className="text-ink">95.78%</span> test accuracy and{' '}
-                <span className="text-ink">95.52% ± 0.45%</span> cross‑validation accuracy.
+                <span className="text-ink">93%</span> test accuracy and{' '}
+                <span className="text-ink">93% ± 0.53%</span> cross‑validation accuracy.
               </p>
             </div>
 
-            {/* Finding 2: Random Forest Practicality */}
+            {/* Finding 2 */}
             <div className="border border-hair rounded-lg p-5 bg-panel border-safe/30">
               <div className="flex items-center gap-2 mb-2">
                 <Shield size={18} className="text-safe" />
                 <span className="font-mono text-xs uppercase tracking-wider text-safe">Finding 2</span>
               </div>
-              <h3 className="font-display text-lg text-ink mb-1">Random Forest for Real‑World</h3>
+              <h3 className="font-display text-lg text-ink mb-1">XGBoost for Real‑World</h3>
               <p className="font-body text-sm text-muted leading-relaxed">
-                Random Forest achieves better results for the positive class with higher phishing
-                recall (<span className="text-ink">0.90</span>) and lower false negatives
-                (<span className="text-ink">72</span> vs <span className="text-ink">79</span> for HGB).
+                XGBoost achieves better results for the positive class with<span className="text-ink"></span>lower false negatives
+                (<span className="text-ink">69</span> vs <span className="text-ink">79</span> for HGB).
               </p>
             </div>
 
@@ -139,112 +138,14 @@ export default function Findings() {
               </div>
               <h3 className="font-display text-lg text-ink mb-1">Excellent Class Separation</h3>
               <p className="font-body text-sm text-muted leading-relaxed">
-                High ROC‑AUC values (<span className="text-ink">0.9734</span>) across all models highlight
+                High ROC‑AUC values (<span className="text-ink">0.9779</span>) across all models highlight
                 the classifiers' ability to distinguish between legitimate and phishing classes.
               </p>
             </div>
           </div>
         </section>
 
-        {/* XGBoost vs Random Forest Deep Dive */}
-        <section className="border border-hair rounded-lg bg-panel p-6 sm:p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Layers size={20} className="text-data" />
-            <h3 className="font-display text-xl text-ink">XGBoost vs Random Forest</h3>
-          </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {/* XGBoost */}
-            <div className="bg-panel2 p-5 rounded-lg border border-hair">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap size={20} className="text-alert" />
-                <span className="font-mono text-sm text-ink font-semibold">XGBoost</span>
-                <span className="ml-auto font-mono text-[10px] text-mutedDim bg-panel px-2 py-0.5 rounded">Benchmark leader</span>
-              </div>
-              <ul className="space-y-2 text-sm text-muted">
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-alert shrink-0 mt-0.5" />
-                  <span>Test accuracy: <span className="text-ink">95.78%</span></span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-alert shrink-0 mt-0.5" />
-                  <span>CV accuracy: <span className="text-ink">95.52% ± 0.45%</span></span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <AlertCircle size={16} className="text-data shrink-0 mt-0.5" />
-                  <span>Focuses on global performance</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <AlertCircle size={16} className="text-data shrink-0 mt-0.5" />
-                  <span>Variance can reach <span className="text-ink">15%</span> depending on training set</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Random Forest */}
-            <div className="bg-panel2 p-5 rounded-lg border border-hair border-safe/30">
-              <div className="flex items-center gap-2 mb-3">
-                <GitBranch size={20} className="text-safe" />
-                <span className="font-mono text-sm text-ink font-semibold">Random Forest</span>
-                <span className="ml-auto font-mono text-[10px] text-safe bg-safe-10 px-2 py-0.5 rounded">Recommended</span>
-              </div>
-              <ul className="space-y-2 text-sm text-muted">
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-safe shrink-0 mt-0.5" />
-                  <span>Phishing recall: <span className="text-ink">0.90</span></span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-safe shrink-0 mt-0.5" />
-                  <span>False negatives: <span className="text-ink">72</span> (vs 79 for HGB)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-safe shrink-0 mt-0.5" />
-                  <span>Bagging reduces variance during training</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-safe shrink-0 mt-0.5" />
-                  <span>Better performance on unseen data / production</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <p className="font-body text-sm text-muted leading-relaxed mt-4 text-center">
-            Random Forest's bagging algorithm reduces variance, avoiding over‑emphasis on the majority class
-            and achieving better performance in production environments.
-          </p>
-        </section>
-
-        {/* Variance Analysis */}
-        <section className="border border-hair rounded-lg bg-panel p-6 sm:p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <TrendingUp size={20} className="text-info" />
-            <h3 className="font-display text-xl text-ink">Variance Analysis</h3>
-          </div>
-          <div className="space-y-4 text-sm text-muted leading-relaxed">
-            <p>
-              The variance analysis uncovers that variations in boosted trees' performance can be as
-              high as <span className="text-ink">15%</span>, suggesting that results can significantly
-              depend on the peculiarities of the training set.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4 mt-2">
-              <div className="bg-panel2 p-4 rounded-lg border border-hair">
-                <span className="font-mono text-xs text-alert uppercase tracking-wider">Boosted Trees</span>
-                <p className="mt-1 text-muted">
-                  Performance variance up to <span className="text-ink">15%</span> — results depend
-                  heavily on training set characteristics.
-                </p>
-              </div>
-              <div className="bg-panel2 p-4 rounded-lg border border-hair border-safe/30">
-                <span className="font-mono text-xs text-safe uppercase tracking-wider">Random Forest (Bagging)</span>
-                <p className="mt-1 text-muted">
-                  Reduces variance during training — becomes particularly beneficial when making
-                  predictions on unseen data.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Final Recommendation */}
         <section className="border border-hair rounded-lg bg-panel2 p-6 sm:p-8 border-safe/20">
@@ -254,14 +155,14 @@ export default function Findings() {
           </div>
           <div className="space-y-3 text-sm text-muted leading-relaxed">
             <p>
-              The overall evaluation demonstrates that <strong className="text-safe">Random Forest</strong>{' '}
+              The overall evaluation demonstrates that <strong className="text-safe">XGBoost</strong>{' '}
               provides reliable accuracy, precision, and recall, making it a{' '}
               <strong className="text-ink">good candidate for a real‑time phishing URL detection system</strong>.
             </p>
             <div className="grid sm:grid-cols-3 gap-3 mt-3">
               <div className="bg-panel p-3 rounded-lg border border-hair text-center">
                 <p className="font-mono text-[10px] text-mutedDim uppercase tracking-wider">Accuracy</p>
-                <p className="font-display text-lg text-ink">92.86%</p>
+                <p className="font-display text-lg text-ink">92.96%</p>
               </div>
               <div className="bg-panel p-3 rounded-lg border border-hair text-center">
                 <p className="font-mono text-[10px] text-mutedDim uppercase tracking-wider">Phishing Recall</p>
@@ -269,7 +170,7 @@ export default function Findings() {
               </div>
               <div className="bg-panel p-3 rounded-lg border border-hair text-center">
                 <p className="font-mono text-[10px] text-mutedDim uppercase tracking-wider">ROC-AUC</p>
-                <p className="font-display text-lg text-info">0.9734</p>
+                <p className="font-display text-lg text-info">0.9779</p>
               </div>
             </div>
             <p className="mt-3">
