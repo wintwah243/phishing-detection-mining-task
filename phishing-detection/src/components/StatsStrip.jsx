@@ -2,9 +2,9 @@ import React from "react";
 
 const stats = [
   { value: "10,000+", label: "URLs sourced" },
-  { value: "40+", label: "engineered features" },
-  { value: "3", label: "models benchmarked" },
-  { value: "97.8%", label: "best F1-score" },
+  { value: "10+", label: "engineered features" },
+  { value: "4", label: "models benchmarked" },
+  { value: "92%", label: "best Recall with low FN" },
 ];
 
 export default function StatsStrip() {

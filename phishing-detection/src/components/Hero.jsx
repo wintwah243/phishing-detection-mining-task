@@ -19,7 +19,7 @@ export default function Hero() {
     setResult(null);
 
     try {
-      const response = await fetch("http://localhost:8000/predict", {
+      const response = await fetch("https://phishing-detection-backend-a1yi.onrender.com/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="absolute inset-0 grid-texture pointer-events-none" />
       <div className="relative max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-16">
         <p className="rise rise-1 font-mono text-xs tracking-widest text-mutedDim uppercase mb-5">
-          Data & Knowledge Mining · Final Year Project · NLP Lab
+          Supervisor - Dr. Hsu Myat Mo
         </p>
 
         <h1 className="rise rise-2 font-display text-ink text-4xl sm:text-6xl leading-[1.08] max-w-3xl">
@@ -54,10 +54,10 @@ export default function Hero() {
         </h1>
 
         <p className="rise rise-3 font-body text-muted text-base sm:text-lg max-w-xl mt-6 leading-relaxed">
-          A mining pipeline that separates ordinary web addresses from phishing
-          attempts and structural anomalies — built on lexical, host-based, and
-          content-based features. Every experiment, failure, and result is
-          logged here as the project develops.
+          I would like to express my sincere gratitude to my teacher,{" "}
+            <span className="text-data font-medium">Dr. Hsu Myat Mo</span>, for her continuous guidance,
+            encouragement and patient support in the completion of this project. Her valuable advice and feedbacks as
+            well as academic guidance have been a key factor for the successful development of this work.
         </p>
 
         {/* Real-time Phishing Detection Section */}
