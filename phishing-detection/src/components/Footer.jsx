@@ -1,5 +1,5 @@
 import React from "react";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Download } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -14,8 +14,13 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex flex-col gap-2 font-mono text-sm">
-          <a href="#" className="text-muted hover:text-ink flex items-center gap-2">
-            <BookOpen size={14} /> Full project report (PDF)(coming soon)
+          {/* PDF Download Link */}
+          <a
+            href="/project-report.pdf"
+            download="Project_Report_WintWahKyawSoe.pdf"
+            className="text-muted hover:text-ink flex items-center gap-2 transition-colors"
+          >
+            <Download size={14} /> Full project report (PDF) - Download Project Book
           </a>
         </div>
       </div>

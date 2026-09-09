@@ -19,7 +19,7 @@ export default function Hero() {
     setResult(null);
 
     try {
-      const response = await fetch("https://phishing-detection-backend-a1yi.onrender.com/predict", {
+      const response = await fetch("http://localhost:8000/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
